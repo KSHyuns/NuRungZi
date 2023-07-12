@@ -14,67 +14,39 @@ public class Bullet : MonoBehaviour
     public float HeightArc = 1f;    // Bullet의 투척각도입니다. (수치변경은 Bullet 프리팹에 인스펙터 창을 이용해주세요.)
 
     private Vector3 StartPosition;  // 오브젝트 생성 위치를 저장해줍니다.
-    private bool IsStart;           // 적의 유무를 체크합니다. 추후 변경 또는 제거될 수 있는 코드입니다.
 
     void Awake()
     {
-        target = GameObject.FindGameObjectWithTag("Dummy").transform;               // target의 Vector 값을 Enemy(Tag)의 좌표로 설정합니다.
-        StartPosition = transform.position;                                         // Bullet의 처음 위치입니다.
-       // enemyHp = FindObjectOfType<Enemy>();
+        target = GameObject.FindGameObjectWithTag("Dummy").transform;               // target = bullet 도착지점
+        StartPosition = transform.position;                                         // bullet 처음지점
     }
 
     void Update()
     {
-        gameObject.transform.Rotate(0,0,-Time.deltaTime*rotateSpeed,Space.Self);    // 오브젝트를 회전시킵니다.
-
-        if (target != null)  // 타겟 오브젝트(Enemy)가 있다면
-        {
-            IsStart = true; // IsStart를 true로 변경합니다.
-        }
-        else
-            return;
-
-        if (IsStart)         // 적이 있다면
-        {
-            // 아래는 모두 포물선 공식입니다.
-            // 업데이트 함수의 주석들을 제거하면 오브젝트가 회전하지 않고 Enemy방향을 보고 날아갑니다.(앵그리버드처럼)
-
-            float x0 = StartPosition.x;
-            float x1 = target.position.x;
-            float distance = x1 - x0;
-            float nextX = Mathf.MoveTowards(transform.position.x, x1, Speed * Time.deltaTime);
-            float baseY = Mathf.Lerp(StartPosition.y, target.position.y, (nextX - x0) / distance);
-            float arc = HeightArc * (nextX - x0) * (nextX - x1) / (-0.25f * distance * distance);
-
-            Vector3 nextPosition = new Vector3(nextX, baseY + arc, transform.position.z);
-            //transform.rotation = LookAt2D(nextPosition - transform.position);
-
-            transform.position = nextPosition;
-
-            if (nextPosition == target.position)
-                Destroy(gameObject);
-        }
-
-
-        /*Quaternion LookAt2D(Vector2 forward)
-        {
-            return Quaternion.Euler(0, 0, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
-        }*/
+        // bullet 회전
+        gameObject.transform.Rotate(0, 0, -Time.deltaTime * rotateSpeed, Space.Self);
+        // (Enemy)가 있다면 IsStart 실행
+        if (target != null) { IsStart(); } //else return;
     }
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) // bullet 발사체가 enemy 에 충돌뒤 스스로 파괴
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            FindObjectOfType<Player>().enemy.maxHp -= damage;
-            
-            //enemyHp.maxHp -= damage;
-
-           // Debug.Log(enemyHp.maxHp);
-
+            FindObjectOfType<Enemy>().maxHp -= damage; //HYJ0712 <Player>클래스에서 가져오던 enemy정보를 <Enemy>클래스에서 가져오도록 변경했습니다.
             Destroy(gameObject);
         }
     }
-}
+    void IsStart()
+    {
+        float x0 = StartPosition.x;
+        float x1 = target.position.x;
+        float distance = x1 - x0;
+        float nextX = Mathf.MoveTowards(transform.position.x, x1, Speed * Time.deltaTime);
+        float baseY = Mathf.Lerp(StartPosition.y, target.position.y, (nextX - x0) / distance);
+        float arc = HeightArc * (nextX - x0) * (nextX - x1) / (-0.25f * distance * distance);
 
+        Vector3 nextPosition = new Vector3(nextX, baseY + arc, transform.position.z);
+        transform.position = nextPosition;
+    }
+}

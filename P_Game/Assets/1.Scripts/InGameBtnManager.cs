@@ -33,23 +33,16 @@ public class InGameBtnManager : MonoBehaviour
     }
 
     // 공격버튼에 관련된 코드입니다.
-    public void AttackButton()
+    public void AttackButton()  // 공격버튼에 관련된 코드입니다. --HYJ0712  maxAttackCount가 1일때 바로 공격이 날아가게되는 부분수정
     {
-        if (!isPause)
+        atkCount.text = maxAttackCount.ToString(); //UI적 표시
+        maxAttackCount--; // (1) 0... 버튼을 누르는 횟수만큼 감소
+
+        if (maxAttackCount == 0) //만약 카운트가 ( 1 -> 0 ) 에 다다르면
         {
-            if (maxAttackCount == 1)
-            {
-                numOfCount++;
-
-                maxAttackCount += numOfCount;
-
-                // 플레이어가 공격할 시 Bullet 프리팹을 생성합니다.
-                playerInfo.Attack();
-            }
-
-            maxAttackCount--;
-
-            atkCount.text = maxAttackCount.ToString();
+            numOfCount++; // (1) 2 3 4.. 공격을 위해 버튼을 눌러야 하는 횟수 증가
+            maxAttackCount += numOfCount; // 다음 총공격 횟수를 저장
+            playerInfo.Attack(); // bullet발사      
         }
     }
 

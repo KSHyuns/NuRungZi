@@ -6,42 +6,26 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public float maxHp = 20;
+    public int maxHp = 20;
     public Slider hpSlider;
-    
-    //public Animator Death;
-
-
-
-    
-
-    private void Start()
-    {
-        
-    
-    }
-
-    public void OnEnable()
-    {
-        maxHp = 20;
-    }
-
+    int killCount;
+    public void OnEnable() { maxHp = 20; } //적의 체력 초기화
     private void Update()
     {
-        gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, new Vector2(5.15f, -1), 15f * Time.deltaTime);
-        hpSlider.value = maxHp / 20;
-
+        gameObject.transform.position =
+            Vector2.MoveTowards(gameObject.transform.position, new Vector2(5.15f, -1), 15f * Time.deltaTime);
         if (maxHp <= 0)
         {
-            //Destroy(gameObject);
-            gameObject.SetActive(false);
+            FindObjectOfType<EnemySpawner>().killCount++;
+            //gameObject.SetActive(false);
             MoneyManager.money += 100;
+            Destroy(gameObject);
+
         }
     }
-
-    IEnumerator Death()
-    {
-        gameObject.SetActive(false);
-        yield return new WaitForSeconds(1f);
-    }
+    /*    IEnumerator Death()
+        {
+            gameObject.SetActive(false);
+            yield return new WaitForSeconds(1f);
+        }*/ //쓰는 친구입니까?
 }
