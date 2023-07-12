@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Bullet : MonoBehaviour
 {
@@ -33,8 +34,11 @@ public class Bullet : MonoBehaviour
         else
             return;
 
-        if(IsStart)         // 적이 있다면
+        if (IsStart)         // 적이 있다면
         {
+            // 아래는 모두 포물선 공식입니다.
+            // 업데이트 함수의 주석들을 제거하면 오브젝트가 회전하지 않고 Enemy방향을 보고 날아갑니다.(앵그리버드처럼)
+
             float x0 = StartPosition.x;
             float x1 = target.position.x;
             float distance = x1 - x0;
@@ -47,7 +51,11 @@ public class Bullet : MonoBehaviour
 
             transform.position = nextPosition;
 
+            if (nextPosition == target.position)
+                Destroy(gameObject);
         }
+
+
         /*Quaternion LookAt2D(Vector2 forward)
         {
             return Quaternion.Euler(0, 0, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
@@ -60,6 +68,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             FindObjectOfType<Player>().enemy.maxHp -= damage;
+            
             //enemyHp.maxHp -= damage;
 
            // Debug.Log(enemyHp.maxHp);
