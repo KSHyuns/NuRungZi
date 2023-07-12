@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public int maxHp = 20;
+    public float maxHp = 20;
+    public Slider hpSlider;
     
     //public Animator Death;
 
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, new Vector2(5.15f, -1), 15f * Time.deltaTime);
+        hpSlider.value = maxHp / 20;
 
         if (maxHp <= 0)
         {
