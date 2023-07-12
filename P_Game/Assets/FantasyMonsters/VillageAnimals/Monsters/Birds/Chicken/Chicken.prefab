@@ -71,7 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 25
-  m_Sprite: {fileID: 2640329124585140612, guid: ac16d823db81ae246ad98221b267af49, type: 3}
+  m_Sprite: {fileID: 2640329124585140612, guid: ac16d823db81ae246ad98221b267af49,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -190,7 +191,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: -5673618120071735642, guid: ac16d823db81ae246ad98221b267af49, type: 3}
+  m_Sprite: {fileID: -5673618120071735642, guid: ac16d823db81ae246ad98221b267af49,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -272,7 +274,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: -1828946549344447192, guid: ac16d823db81ae246ad98221b267af49, type: 3}
+  m_Sprite: {fileID: -1828946549344447192, guid: ac16d823db81ae246ad98221b267af49,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -354,7 +357,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -524195514793821918, guid: ac16d823db81ae246ad98221b267af49, type: 3}
+  m_Sprite: {fileID: -524195514793821918, guid: ac16d823db81ae246ad98221b267af49,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -422,6 +426,74 @@ MonoBehaviour:
   - {fileID: -1381065623766834176, guid: ac16d823db81ae246ad98221b267af49, type: 3}
   Animator: {fileID: 8009411909281360670}
   Variations: 0
+  SpriteNames:
+  - Body
+  - HeadNormal
+  - Wing
+  - Leg
+  - Leg
+  TexturePath: Assets/FantasyMonsters/VillageAnimals/Monsters/Birds/Chicken/Chicken.png
+  Spritesheet:
+  - alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    name: HeadNormal
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 256
+      width: 171
+      height: 256
+    border: {x: 0, y: 0, z: 0, w: 0}
+  - alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    name: HeadDead
+    rect:
+      serializedVersion: 2
+      x: 341
+      y: 256
+      width: 171
+      height: 256
+    border: {x: 0, y: 0, z: 0, w: 0}
+  - alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    name: Body
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 420
+      height: 256
+    border: {x: 0, y: 0, z: 0, w: 0}
+  - alignment: 9
+    pivot: {x: 0.51, y: 0.7}
+    name: Leg
+    rect:
+      serializedVersion: 2
+      x: 420
+      y: 164
+      width: 92
+      height: 92
+    border: {x: 0, y: 0, z: 0, w: 0}
+  - alignment: 0
+    pivot: {x: 0.5, y: 0.5}
+    name: HeadAngry
+    rect:
+      serializedVersion: 2
+      x: 171
+      y: 256
+      width: 170
+      height: 256
+    border: {x: 0, y: 0, z: 0, w: 0}
+  - alignment: 9
+    pivot: {x: 0.26, y: 0.56}
+    name: Wing
+    rect:
+      serializedVersion: 2
+      x: 420
+      y: 72
+      width: 92
+      height: 92
+    border: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &4170462454433883350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,11 +522,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e7850929f3a324984a5875e3615cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortingGroup: {fileID: 6781992547309488536}
   Sprites:
   - {fileID: 4979974078375915240}
   - {fileID: 5751197058965096076}
   - {fileID: 7414661750103749559}
+  SortingGroup: {fileID: 6781992547309488536}
+  SortingOrderOffset: 0
+  SortingOrderStep: 5
+  ZStep: 0.00001
 --- !u!210 &6781992547309488536
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -468,7 +543,7 @@ SortingGroup:
   m_SortingOrder: 200
 --- !u!95 &8009411909281360670
 Animator:
-  serializedVersion: 5
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -481,12 +556,10 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!70 &8364271249298629789
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -574,7 +647,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -524195514793821918, guid: ac16d823db81ae246ad98221b267af49, type: 3}
+  m_Sprite: {fileID: -524195514793821918, guid: ac16d823db81ae246ad98221b267af49,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
