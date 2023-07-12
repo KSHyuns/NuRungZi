@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,18 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int maxHp = 20;
+    
     //public Animator Death;
 
+
+
+    
+
+    private void Start()
+    {
+        
+    
+    }
 
     public void OnEnable()
     {
@@ -21,6 +32,7 @@ public class Enemy : MonoBehaviour
         {
             //Destroy(gameObject);
             gameObject.SetActive(false);
+            MoneyManager.money += 100;
         }
     }
 
