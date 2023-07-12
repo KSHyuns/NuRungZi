@@ -12,6 +12,8 @@ public class ButtonManager : MonoBehaviour
     public GameObject OptionBG;
     public GameObject MenuBG;
     public GameObject EquipBG;
+    public GameObject StageClear;
+    public GameObject StageUnClear;
     public GameObject ShopBG;
    
     private void Start()
@@ -20,7 +22,8 @@ public class ButtonManager : MonoBehaviour
         MenuBG.SetActive(false);
         EquipBG.SetActive(false);
         ShopBG.SetActive(false);
-       
+        StageClear.SetActive(false);
+        StageUnClear.SetActive(false);
     }
     public void StartBtn()
     {
@@ -38,6 +41,10 @@ public class ButtonManager : MonoBehaviour
     public void Stage3Btn()
     {
         SceneManager.LoadScene(4);
+    }
+    public void ReLoadBtn()
+    {
+        SceneManager.LoadScene(gameObject.scene.name);
     }
 
     public void ExitBtn()
@@ -71,6 +78,8 @@ public class ButtonManager : MonoBehaviour
         MenuBG.SetActive(false);
         EquipBG.SetActive(false);
         ShopBG.SetActive(false);
+        StageClear.SetActive(false);
+        StageUnClear.SetActive(false);
     }
 
     

@@ -22,18 +22,18 @@ namespace Assets.FantasyMonsters.Scripts
         /// </summary>
         public void Awake()
         {
-            if (Variations)
-            {
-                var variations = GetComponents<MonsterVariation>();
-                var random = UnityEngine.Random.Range(0, variations.Length + 1);
+           // if (Variations)
+           // {
+               // var variations = GetComponents<MonsterVariation>();
+              //  var random = UnityEngine.Random.Range(0, variations.Length + 1);
 
-                if (random > 0)
-                {
-                    variations[random - 1].Apply();
-                }
-            }
+             //   if (random > 0)
+             //   {
+             //       variations[random - 1].Apply();
+           //     }
+          //  }
 
-            GetComponent<LayerManager>().SetSortingGroupOrder((int) -transform.localPosition.y);
+          //  GetComponent<LayerManager>().SetSortingGroupOrder((int) -transform.localPosition.y);
 
             var stateHandler = Animator.GetBehaviours<StateHandler>().SingleOrDefault(i => i.Name == "Death");
 
