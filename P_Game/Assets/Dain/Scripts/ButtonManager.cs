@@ -4,23 +4,23 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class ButtonManager : MonoBehaviour
 {
-    public Slider MusicSlider;
+    
     public GameObject OptionBG;
     public GameObject MenuBG;
     public GameObject EquipBG;
     public GameObject ShopBG;
-    AudioSource BGM;
-
+   
     private void Start()
     {
         OptionBG.SetActive(false);
         MenuBG.SetActive(false);
         EquipBG.SetActive(false);
         ShopBG.SetActive(false);
-        BGM = GetComponent<AudioSource>();
+       
     }
     public void StartBtn()
     {
@@ -73,12 +73,7 @@ public class ButtonManager : MonoBehaviour
         ShopBG.SetActive(false);
     }
 
-    public void MusicSlid()
-    {
-       if(MusicSlider.value >= 1)
-        {
-            BGM.volume = MusicSlider.value;
-        }
-    }    
+    
+    
 
 }

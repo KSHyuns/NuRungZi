@@ -1606,6 +1606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1121280191}
   - component: {fileID: 1121280192}
+  - component: {fileID: 1121280193}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -1686,9 +1687,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1478986752}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: MusicSlid
+      - m_Target: {fileID: 1121280193}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: MusicSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1698,6 +1699,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1121280193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121280190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad1995203268aa45aea9e4cc0d85435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumSlider: {fileID: 1121280192}
 --- !u!1 &1138010250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2862,7 +2876,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2d2a2d4325d69458fbea50955e1830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicSlider: {fileID: 0}
   OptionBG: {fileID: 433214375}
   MenuBG: {fileID: 1671155104}
   EquipBG: {fileID: 1431857211}
