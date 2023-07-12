@@ -49,12 +49,17 @@ public class InGameBtnManager : MonoBehaviour
     // 공격횟수를 1로 초기화 시키는 버튼에 관련된 코드입니다.
     public void BMButton()
     {
-        if (!isPause)
+        if (MoneyManager.starCoin > 500)
         {
-            // 모든 수치 초기화
-            maxAttackCount = 1;
-            numOfCount = 1;
-            atkCount.text = maxAttackCount.ToString();
+            if (!isPause)
+            {
+                // 모든 수치 초기화
+                maxAttackCount = 1;
+                numOfCount = 1;
+                atkCount.text = maxAttackCount.ToString();
+
+                MoneyManager.starCoin -= 500;
+            }
         }
     }
 
@@ -78,5 +83,10 @@ public class InGameBtnManager : MonoBehaviour
     public void ReStart()
     {
         SceneManager.LoadScene("PlayScene_JW");
+    }
+
+    public void TestStarCoinPlus()  // 테스트용 StarCoin(과금머니) 충전입니다.
+    {
+        MoneyManager.starCoin += 100000;
     }
 }

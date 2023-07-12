@@ -20,12 +20,6 @@ public class Enemy : MonoBehaviour
             //gameObject.SetActive(false);
             MoneyManager.money += 100;
             Destroy(gameObject);
-
         }
     }
-    /*    IEnumerator Death()
-        {
-            gameObject.SetActive(false);
-            yield return new WaitForSeconds(1f);
-        }*/ //쓰는 친구입니까?
 }
