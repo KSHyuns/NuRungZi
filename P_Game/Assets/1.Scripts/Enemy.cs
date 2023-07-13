@@ -6,26 +6,31 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public int maxHp = 20;
+    public float maxHp = 20;
+    public float curHp = 0;
     public Slider hpSlider;
+    
     int killCount;
-    public void OnEnable() { maxHp = 20; } //적의 체력 초기화
+
+    private void Start()
+    {
+        curHp = maxHp;
+    }
+
+    public void OnEnable() { curHp = maxHp; } //적의 체력 초기화
     private void Update()
     {
         gameObject.transform.position =
             Vector2.MoveTowards(gameObject.transform.position, new Vector2(5.15f, -1), 15f * Time.deltaTime);
-        if (maxHp <= 0)
+
+        hpSlider.value = curHp / maxHp;
+
+        if (curHp <= 0)
         {
-            FindObjectOfType<EnemySpawner>().killCount++;
+            //FindObjectOfType<EnemySpawner>().killCount++;   // 오류
             //gameObject.SetActive(false);
             MoneyManager.money += 100;
             gameObject.SetActive(false);
         }
-    }
-
-    IEnumerator Death()
-    {
-        gameObject.SetActive(false);
-        yield return new WaitForSeconds(1f);
     }
 }
