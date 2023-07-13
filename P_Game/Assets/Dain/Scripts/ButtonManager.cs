@@ -14,7 +14,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject StageClear;
     public GameObject StageUnClear;
     public GameObject ShopBG;
-<<<<<<< HEAD
+
     public GameObject[] ChestBtn;
     public GameObject[] Chest;
     public GameObject RewardBG;
@@ -23,8 +23,7 @@ public class ButtonManager : MonoBehaviour
     public ButtonManager(GameObject gameObject)
     {
     }
-=======
->>>>>>> a63df2693372390fa479a42a90c196ac9234e297
+
 
     private void Start()
     {
@@ -103,7 +102,7 @@ public class ButtonManager : MonoBehaviour
         StageClear.SetActive(false);
         StageUnClear.SetActive(false);
     }
-<<<<<<< HEAD
+
 
     public void ChestOpen()
     {
@@ -132,6 +131,6 @@ public class ButtonManager : MonoBehaviour
         RewardBG.SetActive(false);
     }
 
-=======
->>>>>>> a63df2693372390fa479a42a90c196ac9234e297
+
+
 }
