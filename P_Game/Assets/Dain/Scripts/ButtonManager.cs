@@ -15,7 +15,15 @@ public class ButtonManager : MonoBehaviour
     public GameObject StageClear;
     public GameObject StageUnClear;
     public GameObject ShopBG;
-   
+    public GameObject[] ChestBtn;
+    public GameObject[] Chest;
+    public GameObject RewardBG;
+    public GameObject RewardsCloseBtn;
+
+    public ButtonManager(GameObject gameObject)
+    {
+    }
+
     private void Start()
     {
         OptionBG.SetActive(false);
@@ -24,6 +32,10 @@ public class ButtonManager : MonoBehaviour
         ShopBG.SetActive(false);
         StageClear.SetActive(false);
         StageUnClear.SetActive(false);
+        Chest[0].SetActive(false);
+        Chest[1].SetActive(false);
+        Chest[2].SetActive(false);
+
     }
     public void StartBtn()
     {
@@ -82,7 +94,31 @@ public class ButtonManager : MonoBehaviour
         StageUnClear.SetActive(false);
     }
 
-    
-    
+    public void ChestOpen()
+    {
+            Chest[0].SetActive(true);
+            ChestBtn[0].SetActive(false);
+            ChestBtn[1].SetActive(false);
+            ChestBtn[2].SetActive(false);
+    }
+    public void ChestOpen1()
+    {
+        Chest[1].SetActive(true);
+        ChestBtn[0].SetActive(false);
+        ChestBtn[1].SetActive(false);
+        ChestBtn[2].SetActive(false);
+    }
+    public void ChestOpen2()
+    {
+        Chest[2].SetActive(true);
+        ChestBtn[0].SetActive(false);
+        ChestBtn[1].SetActive(false);
+        ChestBtn[2].SetActive(false);
+    }
+
+    public void RewardsClose()
+    {
+        RewardBG.SetActive(false);
+    }
 
 }
