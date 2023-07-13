@@ -19,7 +19,13 @@ public class Enemy : MonoBehaviour
             FindObjectOfType<EnemySpawner>().killCount++;
             //gameObject.SetActive(false);
             MoneyManager.money += 100;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+    }
+
+    IEnumerator Death()
+    {
+        gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
     }
 }
