@@ -5,30 +5,59 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-
-    [SerializeField] Slider volumSlider;
+    AudioSource BGMSound;
+    public AudioClip btnSound;
+    public AudioClip openSound;
+    public AudioClip attackSound;
+    public AudioClip moneySound;
+    public AudioClip treasureSound;
+    public AudioClip buySound;
+    public AudioClip bgSound;
     // Start is called before the first frame update
     void Start()
     {
-        if (!PlayerPrefs.HasKey("musicVolume"))
-        {
-            PlayerPrefs.SetFloat("musicVolum", 1);
-            LoadPlay();
-        }
+      
+
+        BGMSound = GetComponent<AudioSource>();
+           
+    }
+    
+
+    public void BtnSound()
+    {
+        BGMSound.clip = btnSound;
+        BGMSound.Play();
     }
 
-    public void MusicSlider()
+    public void OpenSound()
     {
+        BGMSound.clip = openSound;
+        BGMSound.Play();
+    }
 
-        AudioListener.volume = volumSlider.value;
-        SavePlay();
-    }
-    public void LoadPlay()
+    public void AttackSound()
     {
-        volumSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        BGMSound.clip = attackSound;
+        BGMSound.Play();
     }
-    public void SavePlay()
+    public void MoneySound()
     {
-        PlayerPrefs.SetFloat("musicVolume", volumSlider.value);
+        BGMSound.clip = moneySound;
+        BGMSound.Play();
+    }
+    public void TreasureSound()
+    {
+        BGMSound.clip = treasureSound;
+        BGMSound.Play();
+    }
+    public void BuySound()
+    {
+        BGMSound.clip = buySound;
+        BGMSound.Play();
+    }
+    public void BGSound()
+    {
+        BGMSound.clip = bgSound;
+        BGMSound.Play();
     }
 }

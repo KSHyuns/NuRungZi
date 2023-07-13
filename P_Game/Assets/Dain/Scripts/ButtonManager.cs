@@ -20,10 +20,6 @@ public class ButtonManager : MonoBehaviour
     public GameObject RewardBG;
     public GameObject RewardsCloseBtn;
 
-    public ButtonManager(GameObject gameObject)
-    {
-    }
-
 
     private void Start()
     {
@@ -36,7 +32,7 @@ public class ButtonManager : MonoBehaviour
         Chest[0].SetActive(false);
         Chest[1].SetActive(false);
         Chest[2].SetActive(false);
-
+        
     }
 
     public void StartBtn()
