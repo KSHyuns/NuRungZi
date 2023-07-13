@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public float LimitTime;
+    bool IsGameRun = true;
  
     public Text timeText;
     public GameObject gameOverPop;
@@ -14,19 +15,23 @@ public class Timer : MonoBehaviour
     void Start()
     {
         LimitTime = 60f;
+
+        StartCoroutine(TimeOverCheck());
     }
 
-    void Update()
+    IEnumerator TimeOverCheck() 
     {
-        if (LimitTime > 0)
+        while (IsGameRun)
         {
             LimitTime -= Time.deltaTime;
             timeText.text = LimitTime.ToString("#");
-        }
+            yield return null;
 
-        if(LimitTime < 0.5f)
-        {
-            gameOverPop.SetActive(true);
+            if (LimitTime <0.5f)
+            {
+                gameOverPop.SetActive(true);
+                IsGameRun = false;
+            }
         }
     }
 }

@@ -11,14 +11,8 @@ public class MoneyManager : MonoBehaviour
     public static Func<int> action;
 
     public static int money;
-    public static int starCoin; // 과금머니(starCoin) 저장용입니다.
+    public static int starCoin = 999; // 과금머니(starCoin) 저장용입니다.
 
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Money.text = $"{string.Format("{0:n0}",money)}";

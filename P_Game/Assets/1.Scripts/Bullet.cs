@@ -27,13 +27,15 @@ public class Bullet : MonoBehaviour
         gameObject.transform.Rotate(0, 0, -Time.deltaTime * rotateSpeed, Space.Self);
         // (Enemy)가 있다면 IsStart 실행
         if (target != null) { IsStart(); } //else return;
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // bullet 발사체가 enemy 에 충돌뒤 스스로 파괴
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            FindObjectOfType<Enemy>().maxHp -= damage; //HYJ0712 <Player>클래스에서 가져오던 enemy정보를 <Enemy>클래스에서 가져오도록 변경했습니다.
+            FindObjectOfType<Enemy>().curHp -= damage; //HYJ0712 <Player>클래스에서 가져오던 enemy정보를 <Enemy>클래스에서 가져오도록 변경했습니다.
             Destroy(gameObject);
         }
     }
@@ -48,5 +50,8 @@ public class Bullet : MonoBehaviour
 
         Vector3 nextPosition = new Vector3(nextX, baseY + arc, transform.position.z);
         transform.position = nextPosition;
+
+        if (nextPosition == target.position)
+            Destroy(gameObject);
     }
 }

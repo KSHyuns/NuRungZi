@@ -8,13 +8,13 @@ using UnityEngine.Audio;
 
 public class ButtonManager : MonoBehaviour
 {
-    
     public GameObject OptionBG;
     public GameObject MenuBG;
     public GameObject EquipBG;
     public GameObject StageClear;
     public GameObject StageUnClear;
     public GameObject ShopBG;
+<<<<<<< HEAD
     public GameObject[] ChestBtn;
     public GameObject[] Chest;
     public GameObject RewardBG;
@@ -23,6 +23,8 @@ public class ButtonManager : MonoBehaviour
     public ButtonManager(GameObject gameObject)
     {
     }
+=======
+>>>>>>> a63df2693372390fa479a42a90c196ac9234e297
 
     private void Start()
     {
@@ -37,8 +39,11 @@ public class ButtonManager : MonoBehaviour
         Chest[2].SetActive(false);
 
     }
+
     public void StartBtn()
     {
+        Time.timeScale = 1;
+
         SceneManager.LoadScene(1);
     }
 
@@ -81,11 +86,16 @@ public class ButtonManager : MonoBehaviour
     }
     public void MenuBtn()
     {
+        Time.timeScale = 0;
+
         MenuBG.SetActive(true);
     }
 
     public void CloseBtn()
     {
+        Time.timeScale = 1;
+
+        
         OptionBG.SetActive(false);
         MenuBG.SetActive(false);
         EquipBG.SetActive(false);
@@ -93,6 +103,7 @@ public class ButtonManager : MonoBehaviour
         StageClear.SetActive(false);
         StageUnClear.SetActive(false);
     }
+<<<<<<< HEAD
 
     public void ChestOpen()
     {
@@ -121,4 +132,6 @@ public class ButtonManager : MonoBehaviour
         RewardBG.SetActive(false);
     }
 
+=======
+>>>>>>> a63df2693372390fa479a42a90c196ac9234e297
 }
