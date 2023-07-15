@@ -10,4 +10,7 @@ public class Item
     public GameObject Prefebs;
 
     public float attackPower;
+    public int price;
+    
+    public string explain;
 }

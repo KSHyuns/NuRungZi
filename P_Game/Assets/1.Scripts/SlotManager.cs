@@ -11,8 +11,17 @@ public class SlotManager : MonoBehaviour
 
     [Header("장착 하면 요놈한테 들어감")]
     public Item saveItem;
+
     [Header("상점슬롯리스트")]
-    public List<Slot> slots = new List<Slot>();
+    public List<Item> slots = new List<Item>();
+
+    [Header("인벤슬롯리스트")]
+    public List<Item> invenSlots = new List<Item>();
+
+
+    public Shop shop; // 상점...
+    public Equip equip;  //장착 및 인벤
+
 
     private void Awake()
     {
