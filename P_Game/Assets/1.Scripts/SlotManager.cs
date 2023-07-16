@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SlotManager : MonoBehaviour
 {
+    //싱글톤 인스턴스
    public static SlotManager Instance;
 
     [Header("Scriptable로 생성한 DataBase")]

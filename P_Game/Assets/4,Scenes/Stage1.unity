@@ -2621,18 +2621,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &774713076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4267,7 +4255,7 @@ MonoBehaviour:
   equipInfo_Panel: {fileID: 1431857211}
   equipInfo_Sprite: {fileID: 1041439806}
   equipInfo_Name: {fileID: 1904596689}
-  equipBtn: {fileID: 774713075}
+  equipSaveBtn: {fileID: 774713075}
   equipItem:
     animalName: 
     animal: {fileID: 0}
@@ -4276,6 +4264,7 @@ MonoBehaviour:
     price: 0
     explain: 
   explain: {fileID: 1904596689}
+  invenGameobject: []
 --- !u!1 &1460294925
 GameObject:
   m_ObjectHideFlags: 0
@@ -5936,5 +5925,6 @@ MonoBehaviour:
     attackPower: 0
     price: 0
     explain: 
-  exitBtn: {fileID: 319755697}
   BuyBtn: {fileID: 1634768798}
+  exitBtn: {fileID: 319755697}
+  slotsObject: []

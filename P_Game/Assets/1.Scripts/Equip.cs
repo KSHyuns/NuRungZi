@@ -6,23 +6,29 @@ using UnityEngine.UI;
 
 public class Equip : MonoBehaviour
 {
-
+    //생성할 인벤슬롯의 프리팹
     public InvenSlot invenSlotPrefabs;
+    //생성할 인벤슬롯의 부모
     public Transform invenSlotParent;
 
 
     [Header("장착 UI 컴포넌트")]
     public GameObject equipInfo_Panel;
+    //표시할 이미지
     public Image equipInfo_Sprite;
+    //표시할 텍스트
     public Text equipInfo_Name;
   
-    public Button equipBtn;
+    //장착버튼
+    public Button equipSaveBtn;
 
+    //장착 하려는 아이템
     public Item equipItem;
 
-    
+    //장착 하려는 설명 텍스트
     public Text explain;
 
+    //생성할 인벤슬롯의 리스트
     public List<GameObject> invenGameobject = new List<GameObject>();
     private void Start()
     {
@@ -51,7 +57,7 @@ public class Equip : MonoBehaviour
 
 
 
-        equipBtn.onClick.AddListener(SaveBtn);
+        equipSaveBtn.onClick.AddListener(SaveBtn);
     }
 
     public void SaveBtn()
